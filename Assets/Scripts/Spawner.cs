@@ -40,7 +40,7 @@ public class Spawner : MonoBehaviour {
         //ADD clone to objects list
         objects.Add(clone);
         //SET clone's position to spawner position + position
-        clone.transform.position = transform.position+position;
+        clone.transform.position = position;
         //SET clone's rotation to rotation
         clone.transform.rotation = rotation;
     }
@@ -54,7 +54,7 @@ public class Spawner : MonoBehaviour {
         if (spawnTimer > spawnRate)
         {
             Vector3 randomPoint = GenerateRandomPoint();
-            Spawn(randomPoint , Quaternion.identity);
+            Spawn(transform.position + randomPoint , Quaternion.identity);
             spawnTimer = 0;
         }
 	}
